@@ -4,7 +4,7 @@ import (
     "encoding/json"
     "errors"
     "os"
-    "path/filepath"
+    // "path/filepath"
 )
 
 
@@ -19,8 +19,9 @@ type fileStorage struct{
 
 func NewFileStorage(file string) Storage{
     if file == ""{
-        home, _ := os.UserHomeDir()
-        file = filepath.Join(home, ".todo.json")
+        // home, _ := os.UserHomeDir()
+        // file = filepath.Join(home, ".todo.json")
+        file = ".todo.json"
     }
     return &fileStorage{path: file}
 }

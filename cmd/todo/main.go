@@ -61,12 +61,12 @@ func addCmd(svc *todo.Service, args []string) {
 
 func listCmd(svc *todo.Service) {
     tasks, err := svc.List()
-    if err == nil {
+    if err != nil {
         log.Fatal(err)
     }
 
     w := tabwriter.NewWriter(os.Stdout, 0, 0, 2, ' ', 0)
-    fmt.Fprint(w, "ID\tDone?\tTask")
+    fmt.Fprint(w, "ID\tDone?\tTask\n")
     for _, t := range tasks {
         status := " "
         if t.Done {
